@@ -75,19 +75,22 @@ class TWSMS
     args = []
     @send_options[:mobile], @send_options[:message] = mobile, message
     @send_options.merge!(opt).each{|k, v| args << k.to_s + "=" + CGI::escape(v.to_s)}
-    url = SEND_URL + "username=" + @uname + "&password=" + @upwd + "&" + args.join("&")
+    #url = SEND_URL + "username=" + @uname + "&password=" + @upwd + "&" + args.join("&")
+    url = "#{SEND_URL}username=#{@uname}&password=#{@upwd}&#{args.join("&")}"
     self.check_send_val
-    (raise "dlvtime is invalid";exit) unless self.check_date("dlvtime")
+    #(raise "dlvtime is invalid";exit) unless self.check_date("dlvtime")
+    # mark by xdite, because DateTime.parse will cause error
     return self.check_send_resp(Net::HTTP.get(URI.parse(url)))
   end
   
   def querySMS()
-    url ||= QUERY_URL + "username=" + @uname + "&password=" + @upwd
-    url += "&type=" + @query_options[:type].to_s
-    url += "&msgid=" + @query_options[:msgid].to_s
-    url += "&monumber=" + @query_options[:monumber].to_s
-    url += "&sdate=" + @query_options[:sdate].to_s
-    url += "&edate=" + @query_options[:edate].to_s
+    #url ||= QUERY_URL + "username=" + @uname + "&password=" + @upwd
+    #url += "&type=" + @query_options[:type].to_s
+    #url += "&msgid=" + @query_options[:msgid].to_s
+    #url += "&monumber=" + @query_options[:monumber].to_s
+    #url += "&sdate=" + @query_options[:sdate].to_s
+    #url += "&edate=" + @query_options[:edate].to_s
+    url ||= "#{QUERY_URL}username=#{@uname}&password=#{@upwd}&type=#{@query_options[:type].to_s}&msgid=#{@query_options[:msgid].to_s}&monumber=#{@query_options[:monumber].to_s}&sdate=#{@query_options[:sdate].to_s}&edate=#{@query_options[:monumber].to_s}"
     (raise "dlvtime is invalid";exit) unless self.check_date("sdate")
     (raise "dlvtime is invalid";exit) unless self.check_date("edate")
     return self.check_query_resp(Net::HTTP.get(URI.parse(url)))
