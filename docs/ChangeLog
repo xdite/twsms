@@ -1,0 +1,19 @@
+ChangeLog:
+
+* 0.2.1 / 2007-06-18:
+  * NEW: Check vldtime, sdate and edate. Check mobile format.
+  * FIX: Some syntax fixed.
+
+* 0.2.0 / 2007-06-17:
+  * NEW: Query SMS Status has been added.
+    * querySMS()
+    * setMessageId(msgid)
+  * FIX: Some syntax fixed.
+
+* 0.1.1 / 2007-06-16:
+  * Just fix some syntax:
+    * Instance variable: @errors change to class variable: @@errors
+    * At chk_val function:
+        @options[:mo] = @options[:mo].upcase
+* 0.1.0 / 2007-06-15:
+  * Program skeleton.

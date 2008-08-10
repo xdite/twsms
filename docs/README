@@ -1,0 +1,29 @@
+= TWSMS
+
+  http://rubyforge.org/projects/smsender/
+
+== Description
+
+The TWSMS library is used for send SMS messages.
+But, before you use, you must have an account of TWSMS.
+The link of TWSMS: http://www.twsms.com
+
+== Dependencies
+
+* ruby 1.8.2
+* cgi
+* net/http
+
+== Examples
+
+Please read the file named: Example
+
+== Authors
+
+Copyright (c) 2007 by Hsu Shih Chung (zusocfc@gmail.com)
+
+This library coded with Ruby!!
+
+== License
+
+This library is distributed under the Apache 2.0. Please read the LICENSE file.

@@ -1,0 +1,31 @@
+= TWSMS examples
+
+== Send a SMS Message
+  require 'rubygems'
+  require 'twsms'
+
+  sms = SMS.new("username", "password")
+  msg = %q|This is a message|
+  sms.sendSMS("0987654321", msg)
+  sms.sendSMS("0987-654321", msg)
+  sms.sendSMS("0987-654-321", msg)
+
+== Send a SMS Message and do a query about the message we sent.
+
+  require 'rubygems'
+  require 'twsms'
+
+  sms = SMS.new("username", "password")
+  msg = %q|This is a message|
+  sms.sendSMS("0987654321", msg)
+  sms.querySMS
+
+== Query a SMS Message ( Before this, you must have a message id to query )
+
+  require 'rubygems'
+  require 'twsms'
+
+  sms = TWSMS.new("username", "password")
+  sms.setMessageId("65432")
+  sms.querySMS
+
